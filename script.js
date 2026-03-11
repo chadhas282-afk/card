@@ -1,9 +1,7 @@
 function openCard() {
-    // 1. Play "Happy Birthday to You"
     const song = document.getElementById('birthday-song');
     song.play();
 
-    // 2. Confetti Explosion
     var duration = 8 * 1000;
     var animationEnd = Date.now() + duration;
 
@@ -24,7 +22,6 @@ function openCard() {
         });
     }, 250);
 
-    // 3. Change Screens
     const welcome = document.getElementById('welcome-screen');
     const card = document.getElementById('birthday-card');
 
@@ -33,5 +30,21 @@ function openCard() {
         welcome.style.display = 'none';
         card.classList.remove('hidden');
         card.classList.add('fade-in');
+    }, 800);
+}
+
+function showLongWish() {
+    const card = document.getElementById('birthday-card');
+    const longWish = document.getElementById('long-wish-screen');
+
+    card.classList.add('fade-out');
+    
+    setTimeout(() => {
+        card.style.display = 'none';
+        longWish.style.display = 'block';
+        setTimeout(() => {
+            longWish.classList.remove('hidden');
+            longWish.classList.add('fade-in');
+        }, 50);
     }, 800);
 }
